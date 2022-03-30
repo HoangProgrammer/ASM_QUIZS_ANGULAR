@@ -1,0 +1,214 @@
+.form-section {
+    padding: 0px 0px 0px 0px;
+}
+.form-section, .form-section-closed {
+    list-style: none;
+    list-style-position: outside;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    zoom: 1;
+    clear: both;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+input[type="hidden" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    display: none !important;
+    padding: initial;
+    border: initial;
+}
+
+li:first-child .form-header-group, .form-header-group + .form-header-group {
+    border-top: 0;
+}
+.colors{
+    color: #fff
+}
+.form-header-group {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif, sans-serif;
+}
+.form-header-group {
+    padding: 24px 0px 24px 0px;
+}
+.form-header-group {
+    margin: 12px 36px 12px 36px;
+}
+.form-header-group {
+    font-family: "Lucida Grande", sans-serif;
+}
+.form-header-group {
+    text-align: left;
+}
+.form-header-group {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top;
+}
+.form-header-group {
+    border-color: #e6e6e6;
+}
+.form-header-group {
+    background: transparent;
+    border: none;
+    padding: 24px 0;
+    margin: 12px 36px 18px;
+    border-bottom: 1px solid #e3e3e3;
+    border-top: 1px solid #e3e3e3;
+}
+.active-color{
+  color:#fff;
+  background-color:#217ebd;  
+}
+.form-header-group {
+    background: #ffffff;
+    border-bottom: 1px solid #ccc;
+    padding: 12px;
+    clear: both;
+}
+
+.form-line[data-type="control_radio"], .form-line[data-type="control_checkbox"] {
+    display: flex;
+    flex-wrap: wrap;
+}
+.form-line {
+    margin-top: 12px 36px 12px 36px px;
+    margin-bottom: 12px 36px 12px 36px px;
+}
+.form-line {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.form-line {
+    padding: 12px 36px;
+}
+.form-line {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.form-line {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 36px;
+    padding-right: 36px;
+    margin: 6px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+li[data-type="control_checkbox"], [data-type="control_radio"] {
+    display: inline-block;
+}
+.form-line {
+    clear: both;
+    padding: 10px;
+    margin: 0px;
+    display: block;
+    width: 100%;
+    width: -moz-available;
+    position: relative;
+}
+
+.form-label-top, .form-label-left, .form-label-right, .form-html, .form-checkbox-item label, .form-radio-item label {
+    color: #555;
+}
+.form-label {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif, sans-serif;
+}
+.form-label {
+    font-family: "Lucida Grande", sans-serif;
+}
+.form-label-top, .form-label-left, .form-label-right, .form-html {
+    color: #555555;
+}
+.form-label {
+    font-weight: bold;
+}
+.form-label-top {
+    color: #1a5aa9;
+    white-space: normal;
+    display: block;
+    float: none;
+    text-align: left;
+}
+.form-label {
+    white-space: normal;
+}
+.form-label-top, .form-label-left, .form-label-right {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.form-label-top {
+    margin-bottom: 15px;
+    display: block;
+    white-space: normal;
+}
+.form-line[data-type="control_radio"] .form-input-wide, .form-line[data-type="control_checkbox"] .form-input-wide {
+    width: 100%;
+}
+.form-single-column .form-checkbox-item, .form-single-column .form-radio-item {
+    width: 100%;
+}
+
+.form-single-column .form-radio-item, .form-single-column .form-checkbox-item {
+    display: flex;
+    align-items: flex-start;
+}
+.form-radio-item, .form-checkbox-item {
+    padding-bottom: 0px !important;
+}
+.form-radio-item, .form-checkbox-item {
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+.form-radio-item, .form-checkbox-item {
+    margin-top: 5px;
+    float: left;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+}
+
+.form-radio, .form-checkbox {
+    vertical-align: top;
+    margin-top: 4px;
+}
+.form-radio, .form-checkbox {
+    vertical-align: middle;
+    margin-right: 10px;
+    padding: 0px;
+}
+user agent stylesheet
+input:not([type="image" i]) {
+    box-sizing: border-box;
+}
+user agent stylesheet
+input[type="radio" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+}
+
+
+.row.boder-items {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.col-lg-6.item-label {
+    border: 1px solid #0c70cc;
+    padding: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius:5px;
+    display: flex;
+    width: 536px;
+    align-items: center;
+}

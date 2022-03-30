@@ -1,0 +1,68 @@
+.py-2{
+    margin-left:20px;
+    text-decoration: none;
+    
+}
+.nav{
+    background: linear-gradient(60deg, rgb(55 44 94) 0%, rgb(8 118 215) 100%);
+
+}
+li{
+    list-style: none;
+}
+.dow:hover >ul{
+display: block;
+}
+.ul-drop{
+    left: 0;
+    height: auto;
+    padding: 10px;
+    display: none;
+    position: absolute;
+    background:  linear-gradient(60deg, rgb(55 44 94) 0%, rgb(8 118 215) 100%);;
+    top: 25px;
+    width: 110px;
+    border-radius: 3px;
+}
+
+
+.ul-drop li{
+    margin-bottom:10px;
+    padding:10px;
+    display:block;
+    
+}
+
+.ul-drop li:hover{
+    background-color:rgb(42, 58, 73)
+}
+
+.ul-drop li a{
+    text-decoration: none;
+}
+
+.login {
+    width:350px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+ul{
+    top: 58px;
+    z-index: 1001;
+    position: sticky;
+    height: 200px;
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+.active{
+
+    background-color: black;
+    border-radius: 5px;
+    padding:15px
+}
+header{
+    background: -o-linear-gradient(30deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+    background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+}

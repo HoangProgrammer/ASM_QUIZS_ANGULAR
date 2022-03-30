@@ -1,0 +1,30 @@
+ 
+       <h2 class="text-center"><img width="100px" src="https://tse2.mm.bing.net/th?id=OIP.JWcKdjkJlUbPCu8Z2lKHzgHaH3&pid=Api&P=0&w=174&h=184" alt=""> Angular JS</h2>
+     
+       <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+         
+            <div class="col listSubject" *ngFor="let item of listSubject">
+              <div class="list-card card card-cover h-100 overflow-hidden text-white rounded-5 shadow-lg" style="background-image: url('{{item.Logo}}');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                  <h2 class=" h2 mb-4 display-6 lh-1 fw-bold">{{item.Name}}</h2>
+                  <ul class="d-flex list-unstyled mt-auto">
+                                     
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                      <a  (click)="takeQuiz(item.Code)"  class="btn hoc btn-info">Làm bài</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                      <small>code : {{item.Code}}</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+      
+        
+          </div>
+
+
+
+          

@@ -1,0 +1,48 @@
+<div role="main" class="form-all container" style="margin:0 auto;">
+  <ul class="form-section page-section">
+    <li id="cid_1" class="form-input-wide" data-type="control_head">
+      <div class="form-header-group header-large">
+        <div class="header-text httal htvam">
+          <h2 id="header_1" class="form-header text-center text-warning">QUIZ POLY <img
+              src="https://tse4.mm.bing.net/th?id=OIP.A53TpsO-S155VJQ-jvpsdQHaL2&pid=Api&P=0&w=101&h=162" width="100"
+              alt=""></h2>
+        </div>
+      </div>
+    </li>
+
+
+    <li class="form-line" data-type="control_radio" id="id_3" *ngFor='let item of list ;index as i '>
+      <label class="form-label form-label-top " id="label_3" for="input_3"> Câu {{i+1}} : {{ item.Text}} </label>
+      <div id="cid_3" class="form-input-wide">
+        <div class="form-single-column" role="group" aria-labelledby="label_3">
+          <div class="form-radio-item" style="clear:left">
+            <div class="row boder-items">
+              <label class="col-lg-6 item-label"  *ngFor='let items of item.Answers' (click)="check()"   >
+                <span class="dragger-item"></span>
+                <input type="radio" name="{{item.Id}}" id="{{items.Id}}" class="form-radio"
+                  (change)="change(item.Id,items.Id)" id="input_3_0" name="q3_2x" value="1">
+                <label id="label_input_3_0"   for="{{items.Id}}"> {{items.Text}} </label>
+              </label>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </li>
+
+
+
+
+    <li class="form-line" data-type="control_button" id="id_2">
+      <div id="cid_2" class="form-input-wide">
+        <div style="margin-left:156px" data-align="auto"
+          class="form-buttons-wrapper form-buttons-auto jsTest-button-wrapperField">
+          <button id="input_2" type="submit" (click)="final()" class="btn btn-primary">Nộp bài</button>
+        </div>
+      </div>
+    </li>
+    <li style="display:none">Should be Empty:<input type="text" name="website" value="">
+    </li>
+  </ul>
+</div>
