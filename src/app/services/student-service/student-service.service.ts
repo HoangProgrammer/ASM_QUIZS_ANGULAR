@@ -13,6 +13,14 @@ export class StudentService{
   fetchAll():Observable<any>{
   return  this.httpClient.get<any>(`${environment.API_STUDENT}`)
   }
+  getLogin(keyWord:any,password:any=''):Observable<any>{
+    let pass=''
+    if(password !=''){
+       pass=`&password=${password}`
+    }
+  return  this.httpClient.get<any>(`${environment.API_STUDENT}?email=${keyWord}${pass}`)
+
+  }
 
   get(keyWord:string=''):Observable<any>{
   return  this.httpClient.get<any>(`${environment.API_STUDENT}?email_like=${keyWord}`)

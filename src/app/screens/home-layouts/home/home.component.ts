@@ -13,6 +13,10 @@ export class HomeComponent implements OnInit {
     private toast: ToastrService,
     private route: Router
   ) {}
+
+
+
+  
   listSubject: any;
   user: any = null;
   ngOnInit(): void {

@@ -2,7 +2,7 @@ import { QuizServiceService } from './../../../services/quiz-service/quiz-servic
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { StudentService } from 'src/app/services/student-service/student-service.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -64,13 +64,11 @@ export class QuizComponent implements OnInit {
       IdAnswer: 0,
     },
   ];
-  color: any;
-  // ArrColor:any=[]
 
+ 
+  // ArrColor:any=[]
   change(id: any, idAnswer: any) {
     let index = -1;
-
-    this.color = idAnswer;
 
     this.listAnswers.forEach((v, i) => {
       if (v.Id == id) {
@@ -78,68 +76,81 @@ export class QuizComponent implements OnInit {
         return;
       }
     });
-
+    
     if (index == -1) {
       this.listAnswers.push({ Id: id, IdAnswer: idAnswer });
     } else {
       this.listAnswers[index] = { Id: id, IdAnswer: idAnswer };
     }
+
     console.log(this.listAnswers);
     // console.log(this.ArrColor);
   }
 
+
   final() {
-    let newArr = this.listAnswers.filter((a) => a.Id != 0);
-    console.log(newArr);
-    let score = 0;
-    let user: any = null;
-    // let correct = 0;
+    Swal.fire({
+      title: 'bạn chắc chứ?',
+      text: "bạn có chắc chắn muốn nộp bài không không!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'đồng ý!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+    
 
-    this.list.forEach((v: any) => {
-      // console.log(v);
+        let newArr = this.listAnswers.filter((a) => a.Id != 0);
+        console.log(newArr);
+        let score = 0;
+       
+        // let correct = 0;
+     newArr.forEach((val: any) => { 
+      let q= this.list.find((item:any) =>item.id==val.Id)   
+            if (q.id == val.Id && q.AnswerId == val.IdAnswer) {
+              score += 1;   
+            }
+        });
+    
+    
+        let user = JSON.parse(localStorage.getItem('user') || '[]' );
+       
+        let marks = {
+          Subject: this.Url,
+          mark:Number( (score*10/this.list.length).toFixed(2))
+        };
+    
+          let index = -1;
+          user.marks.forEach((v: any, i: any) => {
+            if (v.Subject != null && v.Subject == this.Url) {
+              index = i;
+              return;
+            }
+          });
+    
+          if (index == -1) {
+            user.marks.push(marks);      
+          } else {
+            user.marks[index] = marks; 
+          }    
 
-      newArr.forEach((val: any) => {
-        // console.log(val);
+         this.studentService.update(user.id, user).subscribe((data) => {
+           console.log(data);       
+          localStorage.setItem('user',JSON.stringify(data))
+         });    
 
-        if (v.Id == val.Id && v.AnswerId == val.IdAnswer) {
-          score += 1;
-          // correct += 1;
-        }
-      });
-    });
+      
+    
+        console.log('Điểm() của bạn là :' + (score*10/this.list.length).toFixed(2));
+        // console.log('Đúng :' + correct);
+    
+        // this.Router.navigate([`quiz/${this.Url}/final`]);
 
-    user = localStorage.getItem('user');
-    user = JSON.parse(user);
-    // console.log(user.id);
-
-    let mark = {
-      Subject: this.Url,
-      mark: score,
-    };
-
-    this.studentService.getOne(user.id).subscribe((res) => {
-      // console.log(res);
-      let index = -1;
-      res.marks.forEach((v: any, i: any) => {
-        if (v.Subject != null && v.Subject == this.Url) {
-          index = i;
-          return;
-        }
-      });
-
-      if (index == -1) {
-        res.marks.push(mark);
-        this.studentService.update(user.id, res).subscribe((data) => {});
-      } else {
-        res.marks[index] = mark;
-        this.studentService.update(user.id, res).subscribe((data) => {});
       }
-    });
+    })
 
-    console.log('Điểm của bạn là :' + score);
-    // console.log('Đúng :' + correct);
-
-    // this.Router.navigate([`quiz/${this.Url}/final`]);
+   
   }
 
   background = false;

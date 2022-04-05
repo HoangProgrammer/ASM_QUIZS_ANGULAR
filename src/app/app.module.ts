@@ -36,7 +36,7 @@ import { environment } from 'src/environments/environment';
 import { FinalComponent } from './screens/home-layouts/final/final.component';
 import { GenderPipe } from './helpers/pipe/gender.pipe';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+// import { SweetAlertModule } from 'sweetalert2';  
 import {ToastrModule } from 'ngx-toastr';
 import { DetailComponent } from './components/students/detail/detail.component';
 @NgModule({

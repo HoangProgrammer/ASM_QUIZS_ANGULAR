@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="
 https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 <div class="registration-form">
-    <form class="form-horizontal" [formGroup]='formRegister'>
+    <form class="form-horizontal" [formGroup]='formRegister' (submit)="Onsubmit()">
    <a routerLink="" class="fs-5">
     <i class="fas fa-home"></i>
    </a>
@@ -12,23 +12,17 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
         <div class="form-icon">
             <span><i class="icon icon-user"></i></span>
         </div>
-        <div class="form-group item">
-            <input type="text" class="form-control" formControlName="fullName"
-            [ngClass]="{'is-invalid':formRegister.controls['fullName'].invalid
-         && ( formRegister.controls['fullName'].dirty
-         || formRegister.controls['fullName'].touched ) }"
-            placeholder="FullName">
-            <span class="invalid-feedback" *ngIf="formRegister.controls['fullName'].hasError('required')"> * trường này không được để trống </span>
-        </div>
+        
         <div class="form-group item">
             <input type="text" class="form-control " 
-            [ngClass]="{'is-invalid':formRegister.controls['username'].invalid
-            && ( formRegister.controls['username'].dirty
-            || formRegister.controls['username'].touched ) }"
-            formControlName="username"
-            placeholder="username">
-            <span class="invalid-feedback"  *ngIf="formRegister.controls['fullName'].hasError('required')">* trường này không được để trống</span>
+            [ngClass]="{'is-invalid':formRegister.controls['name'].invalid
+            && ( formRegister.controls['name'].dirty
+            || formRegister.controls['name'].touched ) }"
+            formControlName="name"
+            placeholder="full name">
+            <span class="invalid-feedback"  *ngIf="formRegister.controls['name'].hasError('required')">* trường này không được để trống</span>
         </div>
+        
         <div class="form-group item">
             <input type="text" class="form-control"
             [ngClass]="{'is-invalid':formRegister.controls['email'].invalid
@@ -37,8 +31,8 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
             formControlName="email"
             placeholder="Email">
             <span class="invalid-feedback" *ngIf="formRegister.controls['email'].hasError('required')">* email không được để trống</span>
-
         </div>
+
         <div class="form-group item">
             <input type="password" class="form-control " 
             [ngClass]="{'is-invalid':formRegister.controls['password'].invalid
@@ -47,33 +41,12 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
             formControlName="password"
             placeholder="Password">
             <span class="invalid-feedback" *ngIf="formRegister.controls['password'].hasError('required')">* trường này không được để trống</span>
+        </div>
+     
+        <div class="form-group item">
+            <button type="submit" [disabled]="formRegister.invalid" class="btn btn-primary create-account">Đăng Ký</button>
+        </div>
 
-        </div>
-      
-        <div class="form-group item">
-            <input type="text" class="form-control "
-            [ngClass]="{'is-invalid':formRegister.controls['phone'].invalid
-            && ( formRegister.controls['phone'].dirty
-            || formRegister.controls['phone'].touched ) }"
-            formControlName="phone"
-            placeholder="Phone Number">
-            <span class="invalid-feedback" *ngIf="formRegister.controls['phone'].hasError('required')">* trường này không được để trống</span>
-        </div>
-        <div class="form-group item">
-            <input type="date" class="form-control "
-             placeholder="Birth Date"
-             [ngClass]="{'is-invalid':formRegister.controls['Birthday'].invalid
-             && ( formRegister.controls['Birthday'].dirty
-             || formRegister.controls['Birthday'].touched ) }"
-             formControlName="Birthday"
-             placeholder="Birthday"
-             >
-            <span class="invalid-feedback"*ngIf="formRegister.controls['Birthday'].hasError('required')">* trường này không được để trống</span>
-
-        </div>
-        <div class="form-group item">
-            <button type="button" [disabled]="formRegister.invalid" class="btn btn-primary create-account">Đăng Ký</button>
-        </div>
     </form>
     <div class="social-media">
         <h5>bạn đã có tài khoản <a routerLink="/login"> đăng nhập </a> ngay </h5>

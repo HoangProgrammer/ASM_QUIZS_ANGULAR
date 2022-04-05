@@ -1,31 +1,56 @@
 <div class="row">
-    <h3>{{note}}</h3>
-<div class="container-sm" [formGroup]="FormQuestions">
-  {{FormQuestions.value|json}}
+  <h3>{{note}}</h3>
+  <div class="container-sm" >
+    {{Questions|json}}
     <div class="form-group">
       <label for="">Text</label>
-      <input type="text" formControlName="Text" class="form-control" >
+      <input type="text" [(ngModel)]="Questions.Text"   class="form-control">
       <small id="helpId" class="text-muted is-feedback"></small>
     </div>
-    <div class="form-group">
-      <label for="">mark</label>
-      <input type="text" name="" id="" formControlName="mark" class="form-control" >
-      <small id="helpId" class="text-muted is-feedback"></small>
+
+  <br>
+   <div *ngIf="display==false" class="form-group">
+      <button class="btn btn-primary" (click)="createQuestion()" title="thêm câu hỏi">+</button>
     </div>
-   
-    <div class="form-group">
-      <h3>Đáp án</h3>
-     <div class="form-group" *ngFor="let item of list">
-      <!-- <label for="">email</label> -->
-      <input type="text" name="" id="" class="form-control" >
-      <small id="helpId" class="text-muted is-feedback"></small>
-     </div>
+    <br>
+
+<div *ngIf="display==true">
+  
+  <div  class="form-group" *ngFor="let item of ArrQuestions ; index as i ">   
+        <label [for]="item.Id" class="form-control" style="border:none">
+           <div class="row">
+        <div class="col-md-1"  >
+          <input type="radio"    *ngIf="Questions.AnswerId===item.id" checked (click)="ChangeUpdate(item.id)"  [name]="param" [id]="item.Id">
+          <input type="radio"    *ngIf="Questions.AnswerId!==item.id" (click)="ChangeUpdate(item.id)"  [name]="param" [id]="item.Id">     
+        </div>      
+        <div class="col-md-11">
+          <input type="text" (keyup)="ChangeText($event, i)" class="form-control" [value]="item.Text">
+        </div>
+       </div>
+      </label>
     </div>
-    <div class="form-group">
-      <br>
-      <button class="btn btn-primary">lưu</button>
-    <!-- <a routerLink="/admin/questions/" class="btn btn-secondary ms-2">quay lại</a> -->
-    </div>
-</div>
 </div>
 
+
+   
+
+<div *ngIf="display==false">
+    <div  class="form-group" *ngFor="let item of Questions.answers ; index as i ">
+      <label  class="form-control" style="border:none">
+           <div class="row">
+        <div class="col-md-1">  
+          <input  type="radio" (click)="ChangeAnswer(i)"   name="code" >
+        </div>
+        <div class="col-md-11">
+          <input type="text" (keyup)="ChangeText($event, i)"   class="form-control">
+        </div>
+       </div>
+      </label>
+    </div>
+</div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="Save()">lưu</button>
+    </div>
+  </div>
+</div>

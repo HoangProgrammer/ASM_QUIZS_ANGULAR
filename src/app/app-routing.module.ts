@@ -28,7 +28,7 @@ const routes: Routes = [
     component: HomeLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: '', component: HomeComponent },
       { path: 'mon-hoc', component: SubjectComponent },
       { path: 'quiz/:id', component: QuizComponent },
       { path: 'quiz/:id/final', component: FinalComponent },
@@ -63,7 +63,7 @@ const routes: Routes = [
         path:'questions/:code',component:QuestionComponent,
         children:[
           { path: '', component: ListQuestionComponent},
-          { path: 'add', component: FormQuestionComponent},
+          { path: 'add/:code', component: FormQuestionComponent},
           { path: 'edit/:code/:id', component: FormQuestionComponent}
         ]
       }

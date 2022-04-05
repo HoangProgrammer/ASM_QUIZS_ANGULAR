@@ -41,14 +41,14 @@ export class FinalComponent implements OnInit {
       }
     })
     })
-    
+
       this.student.getOne(user.id).subscribe((data) => { 
         console.log(data);
         data.marks.forEach((v: any,i:any) => {
           if(v.Subject==code){
             // console.log(v);
            this.Score=v.mark 
-            this.Username=data.fullname
+            this.Username=data.name
             return
           }
         });

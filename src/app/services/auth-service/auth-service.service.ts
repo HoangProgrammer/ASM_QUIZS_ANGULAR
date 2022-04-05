@@ -21,8 +21,7 @@ export class AuthServiceService {
           if (item.length > 0) {
             localStorage.setItem('user', JSON.stringify(item[0]));
             return item[0];
-
-          }
+          } 
           return null;
         })
 

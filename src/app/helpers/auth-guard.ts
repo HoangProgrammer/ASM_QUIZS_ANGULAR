@@ -8,12 +8,12 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(): boolean {
+    
     const login = JSON.parse(localStorage.getItem('user') || '{}');
     if (
       login.email == undefined ||
-      login.email == '' ||
-      login.googleId == undefined ||
-      login.googleId == ''
+      login.email == ''
+
     ) {     
     this.router.navigate(['/login']);
       return false;

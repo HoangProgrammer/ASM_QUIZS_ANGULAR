@@ -10,6 +10,7 @@ import { AuthServiceService } from 'src/app/services/auth-service/auth-service.s
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     private authService: SocialAuthService,
     private service: StudentService,
     private Router: Router,
-    private LoginService: AuthServiceService,
+    private LoginService: AuthServiceService
   ) {}
 
   ngOnInit(): void {
@@ -27,43 +28,58 @@ export class LoginComponent implements OnInit {
   }
   error = '';
   onSubmit() {
+    // console.log('hi');
+    
     let email = this.loginForm.value['email'];
     let password = this.loginForm.value['password'];
-    let id = '';
 
-    this.service.fetchAll().subscribe((data) => {
-      let i = -1;
-      data.forEach((v: any) => {
-        if (v.email == email && v.password == password) {
-          i = 1;
-          id = v.id;
-          return;
+    this.service.getLogin(email,password).subscribe((res) => {
+      if(res!==''){
+   console.log(res);
+        res.map((db:any) =>{
+          localStorage.setItem('user', JSON.stringify(db));
+          this.Router.navigate(['']);
         }
-      });
+        )
+   
+  
+      }else{
 
-      if (i == 1) {
-        let data = {
-          email: email,
-          id: id,
-        };
-
-        localStorage.setItem('user', JSON.stringify(data));
-        this.Router.navigateByUrl('');
-      } else {
         this.error = 'tài khoản hoặc mật khẩu không chính xác';
-        // alert('fail')
-      } 
+      }
+
     });
   }
 
   loginGoogle() {
-
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((resp) => {
       console.log(resp);
-      this.LoginService.Login(resp.email,resp.id).subscribe((data)=>{
-        this.Router.navigate(['']);
-      })
+      this.service.getLogin(resp.email).subscribe((re) => {
+        if (re == '') {
+          let db = {
+            name: resp.name,
+            email: resp.email,
+            avatar: resp.photoUrl,
+            googleId: resp.id,
+            marks: [],
+            roles: ['member'],
+          };
+          
+          this.service.create(db).subscribe((res) => {
+            this.LoginService.Login(res.email, res.googleId).subscribe(
+              (data) => {
+                this.Router.navigate(['']);
+              }
+            );
+          });
 
+        } else {
+          this.LoginService.Login(resp.email, resp.id).subscribe((data) => {
+            this.Router.navigate(['']);
+          });
+        }
+
+      });
     });
   }
 }
