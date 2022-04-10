@@ -1,4 +1,4 @@
-import { FormGroup,FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from './../../../services/student-service/student-service.service';
@@ -27,7 +27,7 @@ export class FormStudentComponent implements OnInit {
   }
 
   render() {
-    
+  
     this.StudentService.getOne(this.param).subscribe(data => {
       for(const item in this.formStudent.controls){    
        this.formStudent.controls[item].setValue(data[item])     
@@ -38,18 +38,17 @@ export class FormStudentComponent implements OnInit {
 
    
   formStudent = new FormGroup({
-    fullname:new FormControl(''),
-    username:new FormControl(''),
-    email:new FormControl(''),
-    password:new FormControl(''),
-    gender:new FormControl(''),
-    birthday:new FormControl(''),
-    schoolfee:new FormControl(''),
+    name:new FormControl('' ,[Validators.required]),
+    email:new FormControl('',[Validators.required ,Validators.email] ),
+    password:new FormControl('',[Validators.required]),
+    avatar:new FormControl(''),
+    marks: new FormControl([]),
+    roles:new FormControl(['member']),
   })
   
 
   save() {
-    console.log(this.formStudent.value.fullname);
+    console.log(this.formStudent.value.name);
     
     if(this.param==''){
       this.StudentService.create(this.formStudent.value).subscribe((data) => {

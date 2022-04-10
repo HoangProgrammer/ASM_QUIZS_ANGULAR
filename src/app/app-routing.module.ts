@@ -21,7 +21,7 @@ import { FormQuestionComponent } from './components/questions/form-question/form
 import { ListQuestionComponent } from './components/questions/list-question/list-question.component';
 import { FinalComponent } from './screens/home-layouts/final/final.component';
 import { AuthGuard } from './helpers/auth-guard';
-
+import { AdminGuardGuard } from './helpers/admin-guard.guard';
 const routes: Routes = [
   {
     path: '',
@@ -37,12 +37,15 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [AdminGuardGuard],
     children: [
       { path: '', component: DashboardComponent },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent ,
+      canActivate: [AdminGuardGuard],},
       {
         path: 'subjects',
         component: SubjectsComponent,
+        canActivate: [AdminGuardGuard],
         children: [
           { path: '', component: ListSubjectComponent },
           { path: 'add', component: FormSubjectComponent },

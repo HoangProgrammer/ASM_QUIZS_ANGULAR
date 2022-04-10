@@ -11,9 +11,9 @@ import { QuizServiceService } from './../../../services/quiz-service/quiz-servic
   styleUrls: ['./final.component.css'],
 })
 export class FinalComponent implements OnInit {
-  Score:number=0;
+  Score: number = 0;
   NameSubject: any;
-  Username:any;
+  Username: any;
   constructor(
     private service: QuizServiceService,
     private router: ActivatedRoute,
@@ -26,35 +26,30 @@ export class FinalComponent implements OnInit {
     // this.get()
   }
   // time:number=3000;
- isLoading=false
+  isLoading = false;
 
   get() {
-    let user: any = localStorage.getItem('user');
-    user = JSON.parse(user);
+    let user: any = JSON.parse(localStorage.getItem('user') || '{}');
     let code = this.router.snapshot.paramMap.get('id');
 
-    setTimeout(()=>{  
-    this.Subject.get().subscribe(data=>{
-    data.forEach((v:any)=>{
-      if(v.Code===code){
-      this.NameSubject= v.Name;
-      }
-    })
-    })
-
-      this.student.getOne(user.id).subscribe((data) => { 
-        console.log(data);
-        data.marks.forEach((v: any,i:any) => {
-          if(v.Subject==code){
-            // console.log(v);
-           this.Score=v.mark 
-            this.Username=data.name
-            return
+    setTimeout(() => {
+      this.Username = user.name;
+      this.Subject.get().subscribe((data) => {
+        data.forEach((v: any) => {
+          if (v.Code === code) {
+            this.NameSubject = v.Name;
           }
         });
       });
- this.isLoading=true
-    },3000)
-   
+
+      user.marks.forEach((v: any, i: any) => {
+        if (v.Subject == code) {
+          this.Score = v.mark;
+          return;
+        }
+      });
+
+      this.isLoading = true;
+    }, 3000);
   }
 }

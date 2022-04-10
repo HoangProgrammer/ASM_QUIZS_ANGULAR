@@ -14,12 +14,13 @@ export class FormQuestionComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {}
+
   param: any = '';
   code: any = '';
-  ArrQuestions: any;
-  ListQuestions: any = [];
   note: any = 'Thêm câu hỏi';
-  lengthId: any;
+
+  ArrQuestions: any; // danh sách ở phần sửa
+  ListQuestions: any = []; // danh sách ỏ phần thêm
   ListIsAnswers: any = [];
   Arr: any = [];
 
@@ -29,17 +30,19 @@ export class FormQuestionComponent implements OnInit {
     if (this.route.snapshot.paramMap.get('id') != null) {
       this.display = true;
       this.param = this.route.snapshot.paramMap.get('id');
-      console.log(this.param);
-
       this.note = 'Sửa câu hỏi';
       this.get();
     }
-
-    console.log(this.code);
   }
 
+  Questions: any = {
+    Text: '',
+    AnswerId: '',
+    answers: [],
+  };
+
+  // lấy ra danh sách phần edit
   get() {
-    // console.log( this.FormQuestions.controls['Answers']);
     this.service.get(this.code).subscribe((data) => {
       for (let item of data) {
         if (this.param == item.id) {
@@ -50,18 +53,26 @@ export class FormQuestionComponent implements OnInit {
             this.Questions[items] = item[items];
             this.ArrQuestions = this.Questions['answers'] = item['answers'];
           }
-          console.log(this.ArrQuestions);
+          // console.log(this.ArrQuestions);
         }
       }
     });
   }
 
-  Questions: any = {
-    Text: '',
-    AnswerId: '',
-    answers: [],
-  };
+  // xóa đáp án
+  HandlerDeleteQuestion(i: any) {
+    // console.log(i);
+    let arr: any = [];
+    this.Questions.answers.forEach((v: any, index: any) => {
+      if (index !== i) {
+        arr.push(v);
+      }
+    });
+    this.Questions.answers = arr;
+  }
 
+
+  // chọn đáp án đúng
   ChangeAnswer(i: any) {
     // chọn đáp án đúng
     let Arr: any = this.Questions.answers;
@@ -76,17 +87,20 @@ export class FormQuestionComponent implements OnInit {
     });
   }
 
+
+  // thay đổi câu đáp án đúng
   ChangeUpdate(id: any) {
     this.Questions.AnswerId = id;
   }
 
+
+  // thay đổi giá trị câu hỏi
   ChangeText(e: any, i: any) {
-    // viết các câu hỏi cho từng phần tử
     this.Questions.answers[i].Text = e.target.value;
   }
 
+  // Hàm Tìm kiếm id Câu hỏi Cuối cùng
   log() {
-    // lấy ra phần từ id cuối cùng của câu hỏi API
     this.service.get(this.code).subscribe((data) => {
       let id = data[data.length - 1].answers; // tìm  mảng câu hỏi cuối cùng
       let lengthId = id[id.length - 1].id; // tìm đến id anwer cuối cùng
@@ -103,8 +117,10 @@ export class FormQuestionComponent implements OnInit {
     console.log(this.ListIsAnswers);
   }
 
+
+
+  // thêm câu hỏi
   createQuestion() {
-    // thêm câu hỏi
     let data = {
       Text: '',
       is_correct: false,
@@ -113,7 +129,8 @@ export class FormQuestionComponent implements OnInit {
     this.log();
   }
 
-  Save() {  
+  // Lưu
+  Save() {
     if (this.param !== '') {
       this.service
         .update(this.code, this.param, this.Questions)
@@ -121,12 +138,14 @@ export class FormQuestionComponent implements OnInit {
           this.router.navigate([`/admin/questions/${this.code}`]);
         });
     } else {
+
       let dataSave: any = [];
       let answers: any = [];
-      console.log(this.ListIsAnswers);
+      // console.log('danh sach cau dap an : '+ this.ListIsAnswers);
 
       let AnswerId: any;
       this.Questions.answers.forEach((val: any, i: any) => {
+        // format lại dữ liệu của phần answer
         answers.push({
           id: this.ListIsAnswers[i],
           Text: val.Text,
@@ -136,7 +155,7 @@ export class FormQuestionComponent implements OnInit {
           AnswerId = this.ListIsAnswers[i]; // tìm đáp án đúng
         }
       });
-      console.log(answers);
+      // console.log(answers);
 
       dataSave = {
         Text: this.Questions.Text,

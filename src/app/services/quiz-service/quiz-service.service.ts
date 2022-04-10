@@ -26,6 +26,7 @@ export class QuizServiceService {
     getOne(url:any):Observable<any>{
       return this.http.get(`${this.BASE_URL}${url}`)
     }
+    
    delete(url:any,id:any):Observable<any>{
      return this.http.delete(`${this.BASE_URL}${url}/${id}`)
    }

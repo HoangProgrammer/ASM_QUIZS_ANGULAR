@@ -9,8 +9,8 @@ export class SubjectService {
   private BASE_URL ="http://localhost:3000/subjects/"
   constructor(private httpClient: HttpClient) { }
 
-  get():Observable<any>{
-    return this.httpClient.get<any>(`${environment.API_Subject}`);
+  get(text: string=''): Observable<any>{
+    return this.httpClient.get<any>(`${environment.API_Subject}?Name_like=`+text);
   }
   getOne(id:number):Observable<any>{
     return this.httpClient.get<any>(`${environment.API_Subject}/`+id);

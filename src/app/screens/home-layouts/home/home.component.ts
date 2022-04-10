@@ -26,9 +26,14 @@ export class HomeComponent implements OnInit {
     this.SubjectSV.get().subscribe((data) => {
       this.listSubject = data;
     });
-    this.user = localStorage.getItem('user');
+    this.user = JSON.parse(localStorage.getItem('user') || '{}') ;
+    
   }
-
+  searchSubject(e:any){
+    this.SubjectSV.get(e.target.value).subscribe((data) => {
+      this.listSubject = data;
+    });
+  }
   takeQuiz(id: any) {
     if (this.user == null) {
       this.toast.error('Vui lòng đăng nhập để làm bài ', 'error');

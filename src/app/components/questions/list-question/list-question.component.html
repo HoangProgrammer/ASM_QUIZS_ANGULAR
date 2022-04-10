@@ -4,8 +4,7 @@
         <tr>
           <th scope="col">Id</th>
           <th scope="col">Tên câu hỏi</th>
-          <th scope="col">điểm</th>
-          <th scope="col"><a routerLink='add/{{param}}'  class="btn btn-primary">+Add</a></th>     
+          <th scope="col"><a routerLink='add/{{param}}'  class="btn btn-primary"><i class="fa fa-add"></i></a></th>     
         </tr>
       </thead>
       <tbody *ngIf="list.length > 0 ">    
@@ -13,12 +12,11 @@
         <tr  *ngFor="let item of list">
           <td>{{item.id}}</td>        
           <td>{{item.Text}}</td>        
-          <td>{{item.Marks}}</td>
           <td>
-            <a [routerLink]="'edit/'+param+'/'+item.id" class="btn btn-info">edit</a> 
+            <a [routerLink]="'edit/'+param+'/'+item.id" class="btn btn-warning"><i class="fa fa-edit"></i></a> 
           </td>  
           <td>
-            <a (click)="handleDelete(item.id)" class="btn btn-danger">delete</a>
+            <a (click)="handleDelete(item.id)" class="btn btn-danger"><i class="fa fa-trash"></i></a>
           </td>  
          
         </tr>

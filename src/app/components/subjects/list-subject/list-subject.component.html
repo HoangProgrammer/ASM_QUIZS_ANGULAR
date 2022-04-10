@@ -5,7 +5,7 @@
           <th scope="col">code</th>
           <th scope="col">Tên môn học</th>
           <th scope="col">ảnh</th>     
-          <th scope="col"><a routerLink='add'  class="btn btn-primary">+Add</a></th>     
+          <th scope="col"><a routerLink='add'  class="btn btn-primary"><i class="fa fa-add"></i></a></th>     
          
         </tr>
       </thead>
@@ -15,9 +15,9 @@
           <td>{{item.Name}}</td>
           <td><img [src]="item.logo" alt=""></td>
           <td>
-            <a [routerLink]="'/admin/questions/'+item.Code" class="btn btn-info">detail</a> /
-            <a [routerLink]="'edit/'+item.id" class="btn btn-warning">edit</a> /
-            <a (click)="delete(item.id)" class="btn btn-danger">delete</a>
+            <a [routerLink]="'/admin/questions/'+item.Code" class="btn btn-info"> <i class="fa fa-eye"></i> </a> &nbsp;
+            <a [routerLink]="'edit/'+item.id" class="btn btn-warning"><i class="fa fa-edit"></i></a> &nbsp;
+            <a (click)="delete(item.id)" class="btn btn-danger"><i class="fa fa-trash"></i></a>
           </td>
        
         </tr>

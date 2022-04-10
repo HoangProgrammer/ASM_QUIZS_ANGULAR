@@ -1,21 +1,26 @@
 <div class="row">
   <h3>{{note}}</h3>
-  <div class="container-sm" >
-    {{Questions|json}}
-    <div class="form-group">
-      <label for="">Text</label>
-      <input type="text" [(ngModel)]="Questions.Text"   class="form-control">
-      <small id="helpId" class="text-muted is-feedback"></small>
-    </div>
-
   <br>
+  <br>
+  <br>
+  <div class="container-sm" >
+       {{Questions|json}}
+    <div class="form-group">
+      <label for="">Câu Hỏi</label>
+      <input type="text" [(ngModel)]="Questions.Text" #Text="ngModel" required   [ngClass]="{'is-invalid':Text.invalid && (Text.touched||Text.dirty)}"  class="form-control">
+      <span id="helpId" class=" text-danger" *ngIf="Text.invalid && (Text.touched||Text.dirty)">vui lòng điền đầy đủ</span>
+    </div>
+    
+<!-- thêm câu hỏi -->
+  <br>
+
    <div *ngIf="display==false" class="form-group">
       <button class="btn btn-primary" (click)="createQuestion()" title="thêm câu hỏi">+</button>
     </div>
     <br>
 
+    <!--input sửa câu Hỏi -->
 <div *ngIf="display==true">
-  
   <div  class="form-group" *ngFor="let item of ArrQuestions ; index as i ">   
         <label [for]="item.Id" class="form-control" style="border:none">
            <div class="row">
@@ -31,8 +36,7 @@
     </div>
 </div>
 
-
-   
+<!--input Thêm câu hỏi -->
 
 <div *ngIf="display==false">
     <div  class="form-group" *ngFor="let item of Questions.answers ; index as i ">
@@ -41,16 +45,21 @@
         <div class="col-md-1">  
           <input  type="radio" (click)="ChangeAnswer(i)"   name="code" >
         </div>
-        <div class="col-md-11">
-          <input type="text" (keyup)="ChangeText($event, i)"   class="form-control">
+        <div class="col-md-9">
+          <input type="text" required  (keyup)="ChangeText($event, i)"   class="form-control">  
+        </div>
+        <div class="col-md-2"> 
+          <span class="btn btn-danger" (click)="HandlerDeleteQuestion(i)">X</span>
         </div>
        </div>
       </label>
     </div>
 </div>
 
+<br>
     <div class="form-group">
-      <button class="btn btn-primary" (click)="Save()">lưu</button>
+      <button class="btn btn-primary" [disabled]="Text.invalid" (click)="Save()">lưu</button> &nbsp;
+      <a [routerLink]="'/admin/questions/'+code" class="btn btn-secondary">quay lại</a>
     </div>
   </div>
 </div>

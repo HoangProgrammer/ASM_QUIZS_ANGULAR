@@ -9,18 +9,23 @@ import { AuthServiceService } from 'src/app/services/auth-service/auth-service.s
 })
 export class HeaderComponent implements OnInit {
 user:any=null
-name:any
+
+checkAdmin:any
   constructor(
  private authService:AuthServiceService
   ) { }
 
   ngOnInit(): void {
     this.user=JSON.parse(localStorage.getItem('user') || "{}")
-    if( this.user!==null){
-      this.name=this.user.email
-    }
+    this.checkAdmin=this.user.roles.filter((role:any) => role=='admin')
+  
  
      
+  }
+
+  handlerChange(e:any){
+console.log(e.target.value);
+
   }
 
   logout(){

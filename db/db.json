@@ -23,6 +23,14 @@
         {
           "Subject": "ADAV",
           "mark": 5
+        },
+        {
+          "Subject": "DBAV",
+          "mark": 1
+        },
+        {
+          "Subject": "JSPR",
+          "mark": 2
         }
       ]
     },
@@ -35,6 +43,10 @@
         {
           "Subject": "ADBS",
           "mark": 3
+        },
+        {
+          "Subject": "PHPP",
+          "mark": 6
         }
       ],
       "roles": [
@@ -68,6 +80,17 @@
         "member"
       ],
       "id": 4
+    },
+    {
+      "name": "võ tòng1232",
+      "email": "tong@gmail.com",
+      "password": "tong12345",
+      "avatar": "",
+      "marks": [],
+      "roles": [
+        "member"
+      ],
+      "id": 5
     }
   ],
   "subjects": [
@@ -190,12 +213,6 @@
       "Name": "Xây dựng trang web",
       "Logo": "WEBU.jpg",
       "id": 20
-    },
-    {
-      "Code": "WEB207",
-      "Name": "Lập trình Frontend framework",
-      "Logo": "C:\\fakepath\\1.jfif",
-      "id": 21
     }
   ],
   "ADAV": [

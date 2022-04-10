@@ -17,16 +17,17 @@
         <div class="form-single-column" role="group" aria-labelledby="label_3">
           <div class="form-radio-item" style="clear:left">
             <div class="row boder-items">
-              <label class="col-lg-6 item-label"  *ngFor='let items of item.answers' (click)="check()"   >
+              
+              <label  class="col-lg-6 item-label"  *ngFor='let items of item.answers' (click)="check()"   >
                 <span class="dragger-item"></span>
                 <input type="radio" name="{{item.id}}" id="{{items.id}}" class="form-radio"
                   (change)="change(item.id,items.id)" id="input_3_0" name="q3_2x" value="1">
                 <label id="label_input_3_0"   for="{{items.id}}"> {{items.Text}} </label>
-              </label>
+              </label>   
+
+         
             </div>
           </div>
-
-
         </div>
       </div>
     </li>

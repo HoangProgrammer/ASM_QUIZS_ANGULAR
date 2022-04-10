@@ -4,24 +4,30 @@
 
      <div class="d-flex justify-content-between" >
       <form class="d-flex float-left" >
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark text-light" type="submit">Search</button>   
+        <input class="form-control me-2" (keyup)="handlerChange($event)" type="search" placeholder="Search" aria-label="Search">
+        <!-- <button  class="btn btn-outline-dark text-light" type="submit">Search</button>    -->
       </form>
     </div>
 
      <div>
         <a class="py-2" routerLink="" aria-label="Product">
             <img width="50px" src="https://media1.giphy.com/media/4bi9ZFzHhroNrFmSsi/giphy.gif?cid=ecf05e47oa5ga1xxjzira980w82jz89sw1mxfmc3rkn0nuku&rid=giphy.gif&ct=g" alt="">
+          
         </a>
      </div>
  
      <div class="login">
    <div class="dropdown" *ngIf="user!=null">
   <li class="dow">
-    <i class="fa fa-user "> </i>  <small class="text-light"> {{name | uppercase }} </small> 
+    <i *ngIf="user.avatar =='' "  class="fa fa-user "> </i>  
+     <img style="border-radius: 50px;" *ngIf="user.avatar !='' " width="50px" [src]="user.avatar" alt=""> 
+     <small class="text-light"> {{user.email | uppercase }} </small> 
     <ul class="ul-drop">
       <li><a routerLink="" class="text-light"> <i class="fas fa-cogs"></i> profile </a></li>
+      <li *ngIf=" checkAdmin!='' "><a routerLink="admin" class="text-light" > <i class="fas fa-dashboard"></i> admin </a></li>
+
       <li><a routerLink="login" (click)="logout()"  href="javacript:;"  class="text-light"> <i title="login" class="fas fa-sign-in"></i>  logout</a></li>
+   
     </ul>
   </li>
    </div>
@@ -32,11 +38,6 @@
   <ul class="nav justify-content-center bg-dark ">
     <li class="nav-item">
       <a  class="py-2 d-none d-md-inline-block text-light" routerLinkActive='active'  routerLink="" > <i class="fa fa-home"></i> Home</a>
-
     </li>
-    <li class="nav-item">
-      <a class="py-2 d-none d-md-inline-block text-light" routerLinkActive='active' routerLink="/admin"> <i class="fa fa-dashboard"></i> Dashboard</a>
-    </li>
-
   </ul>
   

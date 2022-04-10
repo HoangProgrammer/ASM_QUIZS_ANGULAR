@@ -1,45 +1,57 @@
 <div class="row">
-    <h3>{{note}}</h3>
+  <h3>{{note}}</h3>
 
-    <!-- {{formStudent.value|json}} -->
-<div class="container-sm" [formGroup]="formStudent">
-  <div class="form-group">
-    <label for="">Họ tên</label>
-    <input type="text" class="form-control"  formControlName="fullname">
-</div>
-<div class="form-group">
-    <label for="">Email</label>
-    <input type="text" class="form-control"  formControlName="email">
-</div>
-<div class="form-group">
-    <label for="">Tài khoản</label>
-    <input type="text" class="form-control"  formControlName="username">
-</div>
-<div class="form-group">
-    <label for="">password</label>
-    <input type="password" class="form-control"  formControlName="password">
-</div>
-<div class="form-group">
-    <label for="">Ngày sinh</label>
-    <input type="date" class="form-control"  formControlName="birthday">
-</div>
-<div class="form-group">
-    <label for="">Giới tính</label>
-    <select class="form-control"  formControlName="gender">
-        <option value="true">Nam</option>
-        <option value="false">Nữ</option>
-    </select>
-</div>
-<div class="form-group">
-    <label for="">Học phí</label>
-    <input type="number" class="form-control" formControlName="schoolfee">
+  <!-- {{formStudent.value|json}} -->
+  <div class="container-sm" [formGroup]="formStudent">
+    <div class="form-group">
+      <label for="">Họ tên</label>
+      <input type="text" class="form-control"
+      formControlName="name">    
+   <span
+   class="text-danger"
+   *ngIf="formStudent.controls['name'].invalid &&
+    (formStudent.controls['name'].dirty || formStudent.controls['name'].touched) ">không được để trống</span>
+ 
 </div>
 
     <div class="form-group">
-      <br>
-      <button class="btn btn-primary" (click)="save()" >lưu</button>
-    <a routerLink="/admin/students" class="btn btn-secondary ms-2">quay lại</a>
-    </div>
-</div>
-</div>
+      <label for="">Email</label>
+      <input type="text" class="form-control" formControlName="email">
 
+      <div  *ngIf="formStudent.controls['email'].invalid &&
+      (formStudent.controls['email'].dirty ||
+       formStudent.controls['email'].touched) ">
+       <span
+       class="text-danger"
+       *ngIf="formStudent.controls['email'].hasError('required') ">
+        không được để trống
+       </span>  
+       <span
+       class="text-danger"
+       *ngIf="formStudent.controls['email'].hasError('email') ">
+       email không đúng định dạng
+       </span>  
+
+      </div>
+     
+    
+    </div>
+
+    <div class="form-group">
+      <label for="">password</label>
+      <input type="password" class="form-control" formControlName="password">
+  
+      <span
+      class="text-danger"
+      *ngIf="formStudent.controls['password'].invalid &&
+       (formStudent.controls['password'].dirty || formStudent.controls['password'].touched) ">không được để trống</span>
+    
+    </div>
+
+    <div class="form-group">
+      <br>
+      <button class="btn btn-primary"  [disabled]="formStudent.invalid" (click)="save()">lưu</button>
+      <a routerLink="/admin/students" class="btn btn-secondary ms-2">quay lại</a>
+    </div>
+  </div>
+</div>
