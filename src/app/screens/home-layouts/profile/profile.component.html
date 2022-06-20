@@ -1,0 +1,60 @@
+<div class="container">
+  <h2 class="text-center text-info">Hồ Sơ</h2>
+  <br>
+  <nav>
+      <ul class="d-flex justify-content-center">
+          <li>
+            <a routerLink="/profile" routerLinkActive="action" [routerLinkActiveOptions]="{ exact: true }" class="text-dark">  Hồ sơ</a>
+          </li>
+          <li>
+            <a routerLink="marks" routerLinkActive="action" class="text-dark">  điểm môn học</a>
+
+          </li>
+      </ul>
+  </nav>
+  <div  >
+    <div class="row">
+      <div class="col-lg-6" style="margin: auto;" >
+        <div class="form-group ">
+          <label for="inputName" class="col-sm-12 col-form-label">tên</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" [(ngModel)]="formUser.name" [value]="formUser.name">
+          </div>
+        </div>
+        <div class="form-group ">
+          <label for="inputName" class="col-sm-12 col-form-label">email</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" [value]="formUser.email">
+          </div>
+          <br>
+          <button *ngIf="flag==false" (click)="EditPassword()" class="btn-warning text-dark"><i
+              class="fa fa-edit"></i></button>
+        </div>
+
+        <div class="form-group" *ngIf="flag==true">
+          <label for="inputName" class="col-sm-12 col-form-label">mật khẩu cũ</label>
+          <div class="col-sm-12">
+            <input type="password" class="form-control" (keyup)="CurrentPass($event)">
+            <span *ngIf="invalid==false" class="text-danger">mật khẩu không đúng</span>
+          </div>
+        </div>
+        <div class="form-group  " *ngIf="flag==true">
+          <label for="inputName" class="col-sm-12 col-form-label">mật khẩu mới</label>
+          <div class="col-sm-12">
+            <input type="password"  [disabled]="invalid==false" class="form-control" (keyup)="newPass($event)">
+          </div>
+          <br>
+          <button *ngIf="flag==true" (click)="EditPassword(1)" class="btn-danger text-light"><i
+            class="fa fa-trash"></i></button>      
+        </div>
+    <br>
+   
+        <button class="btn btn-primary " [disabled]="invalid==false || invalid==''" (click)="save()">lưu </button>
+
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

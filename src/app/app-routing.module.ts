@@ -22,16 +22,23 @@ import { ListQuestionComponent } from './components/questions/list-question/list
 import { FinalComponent } from './screens/home-layouts/final/final.component';
 import { AuthGuard } from './helpers/auth-guard';
 import { AdminGuardGuard } from './helpers/admin-guard.guard';
+import { ProfileComponent } from './screens/home-layouts/profile/profile.component';
+import { ProfileMarkComponent } from './screens/home-layouts/profile-mark/profile-mark.component';
 const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: HomeComponent },
+      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'mon-hoc', component: SubjectComponent },
       { path: 'quiz/:id', component: QuizComponent },
       { path: 'quiz/:id/final', component: FinalComponent },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        children: [{ path: 'marks', component: ProfileMarkComponent }],
+      },
     ],
   },
   {
@@ -40,8 +47,11 @@ const routes: Routes = [
     canActivate: [AdminGuardGuard],
     children: [
       { path: '', component: DashboardComponent },
-      { path: 'dashboard', component: DashboardComponent ,
-      canActivate: [AdminGuardGuard],},
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AdminGuardGuard],
+      },
       {
         path: 'subjects',
         component: SubjectsComponent,
@@ -63,13 +73,14 @@ const routes: Routes = [
         ],
       },
       {
-        path:'questions/:code',component:QuestionComponent,
-        children:[
-          { path: '', component: ListQuestionComponent},
-          { path: 'add/:code', component: FormQuestionComponent},
-          { path: 'edit/:code/:id', component: FormQuestionComponent}
-        ]
-      }
+        path: 'questions/:code',
+        component: QuestionComponent,
+        children: [
+          { path: '', component: ListQuestionComponent },
+          { path: 'add/:code', component: FormQuestionComponent },
+          { path: 'edit/:code/:id', component: FormQuestionComponent },
+        ],
+      },
     ],
   },
   { path: 'login', component: LoginComponent },
@@ -80,6 +91,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  
 })
 export class AppRoutingModule {}

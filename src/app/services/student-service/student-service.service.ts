@@ -19,7 +19,6 @@ export class StudentService{
        pass=`&password=${password}`
     }
   return  this.httpClient.get<any>(`${environment.API_STUDENT}?email=${keyWord}${pass}`)
-
   }
 
   get(keyWord:string=''):Observable<any>{
@@ -37,6 +36,7 @@ export class StudentService{
   update(id:any,data:any):Observable<any>{
   return  this.httpClient.put<any>(`${environment.API_STUDENT}/${id}`, data)
   }
+  
   delete(id:any):Observable<any>{
   return  this.httpClient.delete<any>(`${environment.API_STUDENT}/`+id)
   }

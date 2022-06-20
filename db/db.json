@@ -2,7 +2,7 @@
   "students": [
     {
       "id": 1,
-      "name": "Hoàng Nguyễn",
+      "name": "Nguyễn Hoàng",
       "password": "iloveyou",
       "email": "nguyenvanhoang2444@gmail.com",
       "avatar": "https://lh3.googleusercontent.com/a-/AOh14GjRJvy66gqkhGQ1-0rtO8Px0xlNcN-b16iLn0fX=s96-c",
@@ -31,28 +31,16 @@
         {
           "Subject": "JSPR",
           "mark": 2
-        }
-      ]
-    },
-    {
-      "name": "Nguyễn Văn Hoàng PH 1 5 1 9 8",
-      "email": "hoangnvph15198@fpt.edu.vn",
-      "avatar": "https://lh3.googleusercontent.com/a/AATXAJyOOK3qEdbXdv0dDXXdV9j2jffLIDh2YxsAckwuSg=s96-c",
-      "googleId": "110866336754102777896",
-      "marks": [
-        {
-          "Subject": "ADBS",
-          "mark": 3
         },
         {
-          "Subject": "PHPP",
-          "mark": 6
+          "Subject": "MOWE",
+          "mark": "5.00"
+        },
+        {
+          "Subject": "CLCO",
+          "mark": "1.00"
         }
-      ],
-      "roles": [
-        "member"
-      ],
-      "id": 2
+      ]
     },
     {
       "name": "namph15985",
@@ -71,7 +59,7 @@
       "id": 3
     },
     {
-      "name": "longAnhph15985",
+      "name": "longAnh",
       "email": "lon@gmail.com",
       "password": "long",
       "avatar": "",
@@ -91,6 +79,30 @@
         "member"
       ],
       "id": 5
+    },
+    {
+      "name": "Nguyễn Văn Hoàng PH 1 5 1 9 8",
+      "email": "hoangnvph15198@fpt.edu.vn",
+      "avatar": "https://lh3.googleusercontent.com/a/AATXAJyOOK3qEdbXdv0dDXXdV9j2jffLIDh2YxsAckwuSg=s96-c",
+      "googleId": "110866336754102777896",
+      "marks": [
+        {
+          "Subject": "ADBS",
+          "mark": "1.00"
+        },
+        {
+          "Subject": "DBAV",
+          "mark": "4.00"
+        },
+        {
+          "Subject": "GAME",
+          "mark": "1.00"
+        }
+      ],
+      "roles": [
+        "member"
+      ],
+      "id": 6
     }
   ],
   "subjects": [
@@ -1991,29 +2003,6 @@
           "Text": "Maven SDK"
         }
       ]
-    },
-    {
-      "Text": "anh hoàng đẹp trai đúng ko",
-      "AnswerId": 104409,
-      "answers": [
-        {
-          "id": 104408,
-          "Text": "quá đúng"
-        },
-        {
-          "id": 104409,
-          "Text": "xấu vcl"
-        },
-        {
-          "id": 104410,
-          "Text": "bình thường"
-        },
-        {
-          "id": 104411,
-          "Text": "ngon zai"
-        }
-      ],
-      "id": 25183
     }
   ],
   "ADBS": [

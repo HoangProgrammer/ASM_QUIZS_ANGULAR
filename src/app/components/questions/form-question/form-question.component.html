@@ -4,10 +4,11 @@
   <br>
   <br>
   <div class="container-sm" >
-       {{Questions|json}}
+       <!-- {{Questions|json}} -->
     <div class="form-group">
       <label for="">Câu Hỏi</label>
-      <input type="text" [(ngModel)]="Questions.Text" #Text="ngModel" required   [ngClass]="{'is-invalid':Text.invalid && (Text.touched||Text.dirty)}"  class="form-control">
+      <input type="text" [(ngModel)]="Questions.Text" #Text="ngModel" required  
+       [ngClass]="{'is-invalid':Text.invalid && (Text.touched||Text.dirty)}"  class="form-control">
       <span id="helpId" class=" text-danger" *ngIf="Text.invalid && (Text.touched||Text.dirty)">vui lòng điền đầy đủ</span>
     </div>
     
@@ -15,18 +16,18 @@
   <br>
 
    <div *ngIf="display==false" class="form-group">
-      <button class="btn btn-primary" (click)="createQuestion()" title="thêm câu hỏi">+</button>
+      <button class="btn btn-primary" (click)="CreateAnswers()" title="thêm câu hỏi">+</button>
     </div>
     <br>
 
     <!--input sửa câu Hỏi -->
 <div *ngIf="display==true">
-  <div  class="form-group" *ngFor="let item of ArrQuestions ; index as i ">   
-        <label [for]="item.Id" class="form-control" style="border:none">
+  <div  class="form-group" *ngFor="let item of Questions.answers ; index as i ">   
+        <label [for]="item.id" class="form-control" style="border:none">
            <div class="row">
         <div class="col-md-1"  >
-          <input type="radio"    *ngIf="Questions.AnswerId===item.id" checked (click)="ChangeUpdate(item.id)"  [name]="param" [id]="item.Id">
-          <input type="radio"    *ngIf="Questions.AnswerId!==item.id" (click)="ChangeUpdate(item.id)"  [name]="param" [id]="item.Id">     
+          <input type="radio"    *ngIf="Questions.AnswerId===item.id" checked (click)="ChangeUpdate(item.id)"  [name]="param" [id]="item.id">
+          <input type="radio"    *ngIf="Questions.AnswerId!==item.id" (click)="ChangeUpdate(item.id)"  [name]="param" [id]="item.id">     
         </div>      
         <div class="col-md-11">
           <input type="text" (keyup)="ChangeText($event, i)" class="form-control" [value]="item.Text">

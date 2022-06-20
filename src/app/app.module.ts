@@ -39,6 +39,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // import { SweetAlertModule } from 'sweetalert2';  
 import {ToastrModule } from 'ngx-toastr';
 import { DetailComponent } from './components/students/detail/detail.component';
+import { ProfileComponent } from './screens/home-layouts/profile/profile.component';
+import { ProfileMarkComponent } from './screens/home-layouts/profile-mark/profile-mark.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +69,8 @@ import { DetailComponent } from './components/students/detail/detail.component';
     FinalComponent,
     GenderPipe,
     DetailComponent,
+    ProfileComponent,
+    ProfileMarkComponent,
 
   ],
   imports: [
@@ -99,7 +103,7 @@ import { DetailComponent } from './components/students/detail/detail.component';
           }
         ],
         onError: (err) => {
-          console.error(err);
+          // console.error(err);
         }
       } as SocialAuthServiceConfig,
     }

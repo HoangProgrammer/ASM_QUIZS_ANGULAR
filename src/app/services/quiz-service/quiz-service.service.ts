@@ -23,8 +23,8 @@ export class QuizServiceService {
      return this.http.put(`${this.BASE_URL}${Url}/${param}`,data)
    }
 
-    getOne(url:any):Observable<any>{
-      return this.http.get(`${this.BASE_URL}${url}`)
+    getOne(url:any,id:any=''):Observable<any>{
+      return this.http.get(`${this.BASE_URL}${url}/${id}`)
     }
     
    delete(url:any,id:any):Observable<any>{

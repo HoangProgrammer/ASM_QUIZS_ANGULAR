@@ -21,9 +21,9 @@
   <li class="dow">
     <i *ngIf="user.avatar =='' "  class="fa fa-user "> </i>  
      <img style="border-radius: 50px;" *ngIf="user.avatar !='' " width="50px" [src]="user.avatar" alt=""> 
-     <small class="text-light"> {{user.email | uppercase }} </small> 
+     <small class="text-light"> {{user.email | uppercase }} </small>  
     <ul class="ul-drop">
-      <li><a routerLink="" class="text-light"> <i class="fas fa-cogs"></i> profile </a></li>
+      <li><a routerLink="profile" class="text-light"> <i class="fas fa-cogs"></i> profile </a></li>
       <li *ngIf=" checkAdmin!='' "><a routerLink="admin" class="text-light" > <i class="fas fa-dashboard"></i> admin </a></li>
 
       <li><a routerLink="login" (click)="logout()"  href="javacript:;"  class="text-light"> <i title="login" class="fas fa-sign-in"></i>  logout</a></li>
@@ -31,7 +31,7 @@
     </ul>
   </li>
    </div>
-      <a  *ngIf="user==null " class="py-2 d-none d-md-inline-block text-light" routerLinkActive='active' routerLink="login"> <i title="login" class="fas fa-sign-in"></i></a>  
+      <a  *ngIf="user==null " class="py-2 d-none d-md-inline-block text-light"  routerLink="login"> <i title="login" class="fas fa-sign-in"></i></a>  
      </div>
     </nav>
   </header>

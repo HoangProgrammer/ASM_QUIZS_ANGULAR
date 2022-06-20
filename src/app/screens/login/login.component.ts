@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
 
   loginGoogle() {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((resp) => {
-      console.log(resp);
+      // console.log(resp);
       this.service.getLogin(resp.email).subscribe((re) => {
         if (re == '') {
           let db = {

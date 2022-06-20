@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css'],
 })
+
 export class QuizComponent implements OnInit {
   constructor(
     private Router: Router,
@@ -24,18 +25,18 @@ export class QuizComponent implements OnInit {
 
   // lấy ra danh sách câu hỏi
   get() {
+
     this.Url = this.RouterActive.snapshot.paramMap.get('id');
-
     let newArr: any = [];
-
     this.service.get(this.Url).subscribe((data) => {
+      
       // newArr = data.sort(() => Math.random() - 0.5);  
       // this.list = newArr.slice(0, 10);
       // console.log(Math.random() - 0.5);
 
-      let first = data[0].id;
-      let last = data[data.length - 1].id;
-
+      let first = data[0].id; // lấy id đầu tiên
+      let last = data[data.length - 1].id; // lấy id đầu cuối cùng
+ 
       let i = 0;
       while (i < 10) {
         let random = Math.floor(Math.random() * (last - first) + first);
@@ -46,7 +47,7 @@ export class QuizComponent implements OnInit {
       }
 
       this.list = [];
-      console.log(newArr);
+      // console.log(newArr);
       data.forEach((v: any, i: any) => {
         for (let index = 0; index < newArr.length; index++) {
           if (v.id == newArr[index]) {
@@ -54,8 +55,8 @@ export class QuizComponent implements OnInit {
           }
         }
       });
-
       console.log(this.list);
+      
     });
   }
 
@@ -67,12 +68,11 @@ export class QuizComponent implements OnInit {
     },
   ];
 
-  changColor = false;
-  Colors:any
-  // ArrColor:any=[]
+ 
+
+
   // chọn đáp án
   change(id: any, idAnswer: any) {
-    this.Colors=[]
     let index = -1;
 
     this.listAnswers.forEach((v, i) => {
@@ -89,10 +89,8 @@ export class QuizComponent implements OnInit {
       this.listAnswers[index] = { Id: id, IdAnswer: idAnswer };
     }
 
-    this.Colors=this.listAnswers
 
-
-    // console.log(this.listAnswers);
+    // this.Colors=this.listAnswers  // console.log(this.listAnswers);
     // console.log(this.ArrColor);
   }
 
@@ -106,16 +104,19 @@ export class QuizComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'đồng ý!',
-    }).then((result) => {
+    }).then((result) => {     
       if (result.isConfirmed) {
+
+
+
         let newArr = this.listAnswers.filter((a) => a.Id != 0);
-        console.log(newArr);
+        // console.log(newArr);
         let point = 0;
 
         // let correct = 0;
         newArr.forEach((val: any) => {
           let q = this.list.find((item: any) => item.id == val.Id);
-          if (q.id == val.Id && q.AnswerId == val.IdAnswer) {
+          if (q.AnswerId == val.IdAnswer) {
             point += 1;
           }
         });
@@ -152,7 +153,7 @@ export class QuizComponent implements OnInit {
 
            console.log('Điểm() của bạn là :' + pointTotal);
     
-        this.Router.navigate([`quiz/${this.Url}/final`]);
+          this.Router.navigate([`quiz/${this.Url}/final`]);
 
         });
 

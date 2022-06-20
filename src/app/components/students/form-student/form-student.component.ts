@@ -29,37 +29,40 @@ export class FormStudentComponent implements OnInit {
   render() {
   
     this.StudentService.getOne(this.param).subscribe(data => {
-      for(const item in this.formStudent.controls){    
-       this.formStudent.controls[item].setValue(data[item])     
-      }
+      // console.log(data);
+      this.formStudent=data
+      // for(const item in this.formStudent.controls){    
+      //  this.formStudent.controls[item].setValue(data[item])     
+      // }
 
     });
   }
 
    
-  formStudent = new FormGroup({
-    name:new FormControl('' ,[Validators.required]),
-    email:new FormControl('',[Validators.required ,Validators.email] ),
-    password:new FormControl('',[Validators.required]),
-    avatar:new FormControl(''),
-    marks: new FormControl([]),
-    roles:new FormControl(['member']),
-  })
+  formStudent = {
+    name:"",
+    email:"",
+    password:"",
+    avatar:"",
+    marks:[],
+    roles:['member'],
+  }
   
 
   save() {
-    console.log(this.formStudent.value.name);
+   
+    // console.log(this.formStudent);
     
     if(this.param==''){
-      this.StudentService.create(this.formStudent.value).subscribe((data) => {
+      this.StudentService.create(this.formStudent).subscribe(() => {
         this.routerURL.navigateByUrl('admin/students');
-      });
-      console.log(this.param);
-      
+      });     
+      console.log(this.param);   
+        
     }else{
       console.log(this.param);
 
-      this.StudentService.update(this.param,this.formStudent.value).subscribe((data) => {
+      this.StudentService.update(this.param,this.formStudent).subscribe(() => {
         this.routerURL.navigateByUrl('admin/students');
       });
     }
