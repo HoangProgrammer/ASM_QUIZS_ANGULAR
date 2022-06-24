@@ -12,13 +12,17 @@ export class ProfileComponent implements OnInit {
   constructor(private Student: StudentService, private Toast: ToastrService) {}
   user: any;
   invalid: any;
+  currentPass:any;
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
+    console.log(this.user)
     this.formUser = this.user;
+    this.currentPass=this.user.password
   }
   form = {
     user: '',
   };
+
   formUser: any;
 
   CurrentPass(e: any) {
@@ -30,11 +34,13 @@ export class ProfileComponent implements OnInit {
     }
 
   }
+
   newPass(e: any) {
     this.formUser.password = e.target.value;
   }
 
   EditPassword(flag:any='') {
+   this.formUser.password=  this.currentPass
     if(flag!=''){
       this.flag = false;
     }else{
@@ -44,6 +50,7 @@ export class ProfileComponent implements OnInit {
   }
 
   save() {
+    console.log(this.formUser)
     this.Student.update(this.formUser.id, this.formUser).subscribe((data) => {
       localStorage.setItem('user', JSON.stringify(data));
       this.Toast.success('thông báo', 'Thay đổi thành công');

@@ -1,0 +1,16 @@
+<div class="container">
+
+    <nav>
+        <ul class="d-flex justify-content-center">
+            <li>
+              <a routerLink="/profile" routerLinkActive="action" [routerLinkActiveOptions]="{ exact: true }" class="text-dark">  Hồ sơ</a>
+            </li>
+            <li>
+              <a routerLink="marks" routerLinkActive="action" class="text-dark">  điểm môn học</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <router-outlet></router-outlet>
+
+</div>

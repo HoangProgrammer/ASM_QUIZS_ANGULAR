@@ -41,6 +41,7 @@ import {ToastrModule } from 'ngx-toastr';
 import { DetailComponent } from './components/students/detail/detail.component';
 import { ProfileComponent } from './screens/home-layouts/profile/profile.component';
 import { ProfileMarkComponent } from './screens/home-layouts/profile-mark/profile-mark.component';
+import { LayoutProfileComponent } from './screens/home-layouts/layout-profile/layout-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,7 @@ import { ProfileMarkComponent } from './screens/home-layouts/profile-mark/profil
     DetailComponent,
     ProfileComponent,
     ProfileMarkComponent,
+    LayoutProfileComponent,
 
   ],
   imports: [

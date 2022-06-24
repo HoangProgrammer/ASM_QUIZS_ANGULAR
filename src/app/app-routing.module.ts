@@ -24,6 +24,7 @@ import { AuthGuard } from './helpers/auth-guard';
 import { AdminGuardGuard } from './helpers/admin-guard.guard';
 import { ProfileComponent } from './screens/home-layouts/profile/profile.component';
 import { ProfileMarkComponent } from './screens/home-layouts/profile-mark/profile-mark.component';
+import { LayoutProfileComponent } from './screens/home-layouts/layout-profile/layout-profile.component'
 const routes: Routes = [
   {
     path: '',
@@ -36,8 +37,16 @@ const routes: Routes = [
       { path: 'quiz/:id/final', component: FinalComponent },
       {
         path: 'profile',
-        component: ProfileComponent,
-        children: [{ path: 'marks', component: ProfileMarkComponent }],
+        component: LayoutProfileComponent,
+        children: [
+          { 
+            path: 'marks', component: ProfileMarkComponent   
+        },
+        { 
+          path: '', component: ProfileComponent 
+      
+      },
+      ],
       },
     ],
   },
