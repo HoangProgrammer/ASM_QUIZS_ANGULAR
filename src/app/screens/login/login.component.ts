@@ -40,9 +40,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('user', JSON.stringify(db));
           this.Router.navigate(['']);
         }
-        )
-   
-  
+        ) 
       }else{
 
         this.error = 'tài khoản hoặc mật khẩu không chính xác';
@@ -51,10 +49,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
   loginGoogle() {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((resp) => {
-      // console.log(resp);
-      this.service.getLogin(resp.email).subscribe((re) => {
+      console.log(resp);
+      this.service.getLogin(resp.email).subscribe((re) => {   
         if (re == '') {
           let db = {
             name: resp.name,

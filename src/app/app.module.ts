@@ -96,17 +96,17 @@ import { LayoutProfileComponent } from './screens/home-layouts/layout-profile/la
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
-        providers: [
+        providers: [  
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              environment.GOOGLE_CLIENT_ID
+            provider: new GoogleLoginProvider(       
+              environment.GOOGLE_CLIENT_ID  
             )
           }
         ],
         onError: (err) => {
-          // console.error(err);
-        }
+          console.error(err);
+        } 
       } as SocialAuthServiceConfig,
     }
 
