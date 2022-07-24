@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
   const BASE_API_URL='http://localhost:3000'
 export const environment = {
-  production: false,
+  production: true,
   GOOGLE_CLIENT_ID:'520588449888-ebtjdjk2ssmo74qpn14qben52vgm3a8q.apps.googleusercontent.com',
   API_STUDENT:`${BASE_API_URL}/students`,
   API_Subject:`${BASE_API_URL}/subjects`
