@@ -1,12 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-  const BASE_API_URL='http://localhost:3000'
+  // const BASE_API_URL='http://localhost:3000'
 export const environment = {
   production: true, 
-  GOOGLE_CLIENT_ID:'520588449888-ebtjdjk2ssmo74qpn14qben52vgm3a8q.apps.googleusercontent.com',
-  API_STUDENT:`${BASE_API_URL}/students`,
-  API_Subject:`${BASE_API_URL}/subjects`
+  // GOOGLE_CLIENT_ID:'520588449888-ebtjdjk2ssmo74qpn14qben52vgm3a8q.apps.googleusercontent.com',
+  // API_STUDENT:`${BASE_API_URL}/students`,
+  // API_Subject:`${BASE_API_URL}/subjects`
 };
 
 
