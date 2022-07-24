@@ -9,36 +9,36 @@ export class StudentService{
 
   constructor(private httpClient: HttpClient) { }
 
-  // BASE_URL = 'http://localhost:3000/students/';
+  BASE_URL = 'http://localhost:3000/students';
   fetchAll():Observable<any>{
-  return  this.httpClient.get<any>(`${environment.API_STUDENT}`)
+  return  this.httpClient.get<any>(`${this.BASE_URL}`)
   }
   getLogin(keyWord:any,password:any=''):Observable<any>{
     let pass=''
     if(password !=''){
        pass=`&password=${password}`
     }
-  return  this.httpClient.get<any>(`${environment.API_STUDENT}?email=${keyWord}${pass}`)
+  return  this.httpClient.get<any>(`${this.BASE_URL}?email=${keyWord}${pass}`)
   }
 
   get(keyWord:string=''):Observable<any>{
-  return  this.httpClient.get<any>(`${environment.API_STUDENT}?email_like=${keyWord}`)
+  return  this.httpClient.get<any>(`${this.BASE_URL}?email_like=${keyWord}`)
   }
   
   getOne(id:any):Observable<any>{
-  return  this.httpClient.get<any>(`${environment.API_STUDENT}/`+id)
+  return  this.httpClient.get<any>(`${this.BASE_URL}/`+id)
   }
   
   create(data:any):Observable<any>{
-  return  this.httpClient.post<any>(environment.API_STUDENT, data)
+  return  this.httpClient.post<any>(this.BASE_URL, data)
   }
 
   update(id:any,data:any):Observable<any>{
-  return  this.httpClient.put<any>(`${environment.API_STUDENT}/${id}`, data)
+  return  this.httpClient.put<any>(`${this.BASE_URL}/${id}`, data)
   }
   
   delete(id:any):Observable<any>{
-  return  this.httpClient.delete<any>(`${environment.API_STUDENT}/`+id)
+  return  this.httpClient.delete<any>(`${this.BASE_URL}/`+id)
   }
 
 }

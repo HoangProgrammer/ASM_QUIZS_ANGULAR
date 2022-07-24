@@ -7,6 +7,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthServiceService {
+
+  BASE_URL = 'http://localhost:3000/students';
+
   constructor(private http: HttpClient,
     private router: Router
     ) {}
@@ -14,7 +17,7 @@ export class AuthServiceService {
   Login(email: string, authToken: string): Observable<any> {
     return this.http
       .get<any>(
-        `${environment.API_STUDENT}?email=${email}&googleId=${authToken}`
+        `${this.BASE_URL}?email=${email}&googleId=${authToken}`
       )
       .pipe(
         map((item: any) => {

@@ -32,7 +32,7 @@ import { FormStudentComponent } from './components/students/form-student/form-st
 import { FormQuestionComponent } from './components/questions/form-question/form-question.component';
 import { ListQuestionComponent } from './components/questions/list-question/list-question.component';
 import { GoogleLoginProvider,SocialAuthServiceConfig,SocialLoginModule } from 'angularx-social-login';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { FinalComponent } from './screens/home-layouts/final/final.component';
 import { GenderPipe } from './helpers/pipe/gender.pipe';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -100,7 +100,7 @@ import { LayoutProfileComponent } from './screens/home-layouts/layout-profile/la
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(       
-              environment.GOOGLE_CLIENT_ID  
+             "520588449888-ebtjdjk2ssmo74qpn14qben52vgm3a8q.apps.googleusercontent.com" 
             )
           }
         ],

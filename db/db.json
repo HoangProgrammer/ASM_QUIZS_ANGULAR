@@ -2006,294 +2006,294 @@
     }
   ],
   "ADBS": [
-    {
-      "id": 25026,
-      "Text": "Điều khiển được sử dụng để hiển thị nội dụng trang web trong ứng dụng Android?",
-      "Marks": 1,
-      "AnswerId": 103784,
-      "answers": [
-        {
-          "id": 103783,
-          "Text": "Button"
-        },
-        {
-          "id": 103784,
-          "Text": "WebView"
-        },
-        {
-          "id": 103785,
-          "Text": "Spinner"
-        },
-        {
-          "id": 103786,
-          "Text": "EditText"
-        }
-      ]
-    },
-    {
-      "id": 25027,
-      "Text": "Đối với URLConnection, sử dụng phương thức nào để thiết lập timeout cho connection?",
-      "Marks": 1,
-      "AnswerId": 103790,
-      "answers": [
-        {
-          "id": 103787,
-          "Text": "setURLTimeout()"
-        },
-        {
-          "id": 103788,
-          "Text": "setInternetTimeout()"
-        },
-        {
-          "id": 103789,
-          "Text": "setTimeout()"
-        },
-        {
-          "id": 103790,
-          "Text": "setConnectTimeout()"
-        }
-      ]
-    },
-    {
-      "id": 25028,
-      "Text": "Cho đoạn mã lệnh sau:wv.setWebChromeClient(new WebChromeClient() { @Override public void onReceivedTitle(WebView view, String title) { getWindow().setTitle(title); } });Hãy cho biết đoạn lệnh trên dùng để làm gì?",
-      "Marks": 1,
-      "AnswerId": 103791,
-      "answers": [
-        {
-          "id": 103791,
-          "Text": "Thay đổi title của trang web"
-        },
-        {
-          "id": 103792,
-          "Text": "Đóng trang web"
-        },
-        {
-          "id": 103793,
-          "Text": "Thay đổi nội dung của trang web"
-        },
-        {
-          "id": 103794,
-          "Text": "Lấy thông tin title của trang web"
-        }
-      ]
-    },
-    {
-      "id": 25029,
-      "Text": "Sử dụng lớp nào để truy cập và thay đổi thông tin trên trình duyệt mặc định của hệ điều hành Android?",
-      "Marks": 1,
-      "AnswerId": 103798,
-      "answers": [
-        {
-          "id": 103795,
-          "Text": "WebClient"
-        },
-        {
-          "id": 103796,
-          "Text": "WebSafariClient"
-        },
-        {
-          "id": 103797,
-          "Text": "WebFirefoxClient"
-        },
-        {
-          "id": 103798,
-          "Text": "WebViewClient"
-        }
-      ]
-    },
-    {
-      "id": 25030,
-      "Text": "Câu nào là sai đối với WebView?",
-      "Marks": 1,
-      "AnswerId": 103800,
-      "answers": [
-        {
-          "id": 103799,
-          "Text": "Không có widget cho brownser activity"
-        },
-        {
-          "id": 103800,
-          "Text": "Không thể sử dụng tag trong XML layout"
-        },
-        {
-          "id": 103801,
-          "Text": "Click vào link sẽ gọi trình duyệt"
-        },
-        {
-          "id": 103802,
-          "Text": "Có thể sử dụng tag trong XML layout"
-        }
-      ]
-    },
-    {
-      "id": 25031,
-      "Text": "Phương thức nào của WebSettings để cho phép WebView hỗ trợ JavaScript?",
-      "Marks": 1,
-      "AnswerId": 103806,
-      "answers": [
-        {
-          "id": 103803,
-          "Text": "setJavaScriptEnabled(false)"
-        },
-        {
-          "id": 103804,
-          "Text": "setJavaScript(true)"
-        },
-        {
-          "id": 103805,
-          "Text": "setJavaScriptEnable(true)"
-        },
-        {
-          "id": 103806,
-          "Text": "setJavaScriptEnabled(true)"
-        }
-      ]
-    },
-    {
-      "id": 25032,
-      "Text": "Khi thời gian kết nối đến một URL quá timeout, phương thức getInputStream() sẽ đưa ra ngoại lệ nào?",
-      "Marks": 1,
-      "AnswerId": 103809,
-      "answers": [
-        {
-          "id": 103807,
-          "Text": "java.net.TimeoutException"
-        },
-        {
-          "id": 103808,
-          "Text": "java.net.SocketException"
-        },
-        {
-          "id": 103809,
-          "Text": "java.net.SocketTimeoutException"
-        },
-        {
-          "id": 103810,
-          "Text": "java.net.SocketTimeout"
-        }
-      ]
-    },
-    {
-      "id": 25033,
-      "Text": "Chương trình sử dụng WebView phải có quyền gì?",
-      "Marks": 1,
-      "AnswerId": 103811,
-      "answers": [
-        {
-          "id": 103811,
-          "Text": "android.permission.AUTHENTICATE_ACCOUNTS"
-        },
-        {
-          "id": 103812,
-          "Text": "android.permission.BIND_APPWIDGET"
-        },
-        {
-          "id": 103813,
-          "Text": "android.permission.INTERNET"
-        },
-        {
-          "id": 103814,
-          "Text": "android.permission.BIND_INPUT_METHOD"
-        }
-      ]
-    },
-    {
-      "id": 25034,
-      "Text": "Sử dụng phương thức nào để lấy thông tin tiêu đề trên trang web chạy trên trình duyệt?",
-      "Marks": 1,
-      "AnswerId": 103817,
-      "answers": [
-        {
-          "id": 103815,
-          "Text": "onReceiveTitle"
-        },
-        {
-          "id": 103816,
-          "Text": "onReceivedHeader"
-        },
-        {
-          "id": 103817,
-          "Text": "onReceivedTitle"
-        },
-        {
-          "id": 103818,
-          "Text": "onReceiveHeader"
-        }
-      ]
-    },
-    {
-      "id": 25035,
-      "Text": "Để tải thông tin qua HTTP, chúng ta phải làm gì?",
-      "Marks": 1,
-      "AnswerId": 103821,
-      "answers": [
-        {
-          "id": 103819,
-          "Text": "Sử dụng HttpGet"
-        },
-        {
-          "id": 103820,
-          "Text": "Không thể tải thông tin qua HTTP"
-        },
-        {
-          "id": 103821,
-          "Text": "Sử dụng thư viện chuẩn của Java"
-        },
-        {
-          "id": 103822,
-          "Text": "Sử dụng URLRequesting"
-        }
-      ]
-    },
-    {
-      "id": 25036,
-      "Text": "URI nào được sử dụng để lấy bookmark của trình duyệt?",
-      "Marks": 1,
-      "AnswerId": 103824,
-      "answers": [
-        {
-          "id": 103823,
-          "Text": "content://firefox/bookmarks"
-        },
-        {
-          "id": 103824,
-          "Text": "content://browser/bookmarks"
-        },
-        {
-          "id": 103825,
-          "Text": "content://chrome/bookmarks"
-        },
-        {
-          "id": 103826,
-          "Text": "content://safari/bookmarks"
-        }
-      ]
-    },
-    {
-      "id": 25037,
-      "Text": "Để lưu trữ SQLite trên thẻ nhớ, phải cung cấp quyền gì trong Android Manifest?",
-      "Marks": 1,
-      "AnswerId": 103828,
-      "answers": [
-        {
-          "id": 103827,
-          "Text": "android.permission.ACCESS_CHECKIN_PROPERTIES"
-        },
-        {
-          "id": 103828,
-          "Text": "android.permission.WRITE_EXTERNAL_STORAGE"
-        },
-        {
-          "id": 103829,
-          "Text": "android.permission.ACCESS_CHECKIN_PROPERTIES"
-        },
-        {
-          "id": 103830,
-          "Text": "android.permission.WRITE_SETTINGS"
-        }
-      ]
-    },
+      {
+        "id": 25026,
+        "Text": "Điều khiển được sử dụng để hiển thị nội dụng trang web trong ứng dụng Android?",
+        "Marks": 1,
+        "AnswerId": 103784,
+        "answers": [
+          {
+            "id": 103783,
+            "Text": "Button"
+          },
+          {
+            "id": 103784,
+            "Text": "WebView"
+          },
+          {
+            "id": 103785,
+            "Text": "Spinner"
+          },
+          {
+            "id": 103786,
+            "Text": "EditText"
+          }
+        ]
+      },
+      {
+        "id": 25027,
+        "Text": "Đối với URLConnection, sử dụng phương thức nào để thiết lập timeout cho connection?",
+        "Marks": 1,
+        "AnswerId": 103790,
+        "answers": [
+          {
+            "id": 103787,
+            "Text": "setURLTimeout()"
+          },
+          {
+            "id": 103788,
+            "Text": "setInternetTimeout()"
+          },
+          {
+            "id": 103789,
+            "Text": "setTimeout()"
+          },
+          {
+            "id": 103790,
+            "Text": "setConnectTimeout()"
+          }
+        ]
+      },
+      {
+        "id": 25028,
+        "Text": "Cho đoạn mã lệnh sau:wv.setWebChromeClient(new WebChromeClient() { @Override public void onReceivedTitle(WebView view, String title) { getWindow().setTitle(title); } });Hãy cho biết đoạn lệnh trên dùng để làm gì?",
+        "Marks": 1,
+        "AnswerId": 103791,
+        "answers": [
+          {
+            "id": 103791,
+            "Text": "Thay đổi title của trang web"
+          },
+          {
+            "id": 103792,
+            "Text": "Đóng trang web"
+          },
+          {
+            "id": 103793,
+            "Text": "Thay đổi nội dung của trang web"
+          },
+          {
+            "id": 103794,
+            "Text": "Lấy thông tin title của trang web"
+          }
+        ]
+      },
+      {
+        "id": 25029,
+        "Text": "Sử dụng lớp nào để truy cập và thay đổi thông tin trên trình duyệt mặc định của hệ điều hành Android?",
+        "Marks": 1,
+        "AnswerId": 103798,
+        "answers": [
+          {
+            "id": 103795,
+            "Text": "WebClient"
+          },
+          {
+            "id": 103796,
+            "Text": "WebSafariClient"
+          },
+          {
+            "id": 103797,
+            "Text": "WebFirefoxClient"
+          },
+          {
+            "id": 103798,
+            "Text": "WebViewClient"
+          }
+        ]
+      },
+      {
+        "id": 25030,
+        "Text": "Câu nào là sai đối với WebView?",
+        "Marks": 1,
+        "AnswerId": 103800,
+        "answers": [
+          {
+            "id": 103799,
+            "Text": "Không có widget cho brownser activity"
+          },
+          {
+            "id": 103800,
+            "Text": "Không thể sử dụng tag trong XML layout"
+          },
+          {
+            "id": 103801,
+            "Text": "Click vào link sẽ gọi trình duyệt"
+          },
+          {
+            "id": 103802,
+            "Text": "Có thể sử dụng tag trong XML layout"
+          }
+        ]
+      },
+      {
+        "id": 25031,
+        "Text": "Phương thức nào của WebSettings để cho phép WebView hỗ trợ JavaScript?",
+        "Marks": 1,
+        "AnswerId": 103806,
+        "answers": [
+          {
+            "id": 103803,
+            "Text": "setJavaScriptEnabled(false)"
+          },
+          {
+            "id": 103804,
+            "Text": "setJavaScript(true)"
+          },
+          {
+            "id": 103805,
+            "Text": "setJavaScriptEnable(true)"
+          },
+          {
+            "id": 103806,
+            "Text": "setJavaScriptEnabled(true)"
+          }
+        ]
+      },
+      {
+        "id": 25032,
+        "Text": "Khi thời gian kết nối đến một URL quá timeout, phương thức getInputStream() sẽ đưa ra ngoại lệ nào?",
+        "Marks": 1,
+        "AnswerId": 103809,
+        "answers": [
+          {
+            "id": 103807,
+            "Text": "java.net.TimeoutException"
+          },
+          {
+            "id": 103808,
+            "Text": "java.net.SocketException"
+          },
+          {
+            "id": 103809,
+            "Text": "java.net.SocketTimeoutException"
+          },
+          {
+            "id": 103810,
+            "Text": "java.net.SocketTimeout"
+          }
+        ]
+      },
+      {
+        "id": 25033,
+        "Text": "Chương trình sử dụng WebView phải có quyền gì?",
+        "Marks": 1,
+        "AnswerId": 103811,
+        "answers": [
+          {
+            "id": 103811,
+            "Text": "android.permission.AUTHENTICATE_ACCOUNTS"
+          },
+          {
+            "id": 103812,
+            "Text": "android.permission.BIND_APPWIDGET"
+          },
+          {
+            "id": 103813,
+            "Text": "android.permission.INTERNET"
+          },
+          {
+            "id": 103814,
+            "Text": "android.permission.BIND_INPUT_METHOD"
+          }
+        ]
+      },
+      {
+        "id": 25034,
+        "Text": "Sử dụng phương thức nào để lấy thông tin tiêu đề trên trang web chạy trên trình duyệt?",
+        "Marks": 1,
+        "AnswerId": 103817,
+        "answers": [
+          {
+            "id": 103815,
+            "Text": "onReceiveTitle"
+          },
+          {
+            "id": 103816,
+            "Text": "onReceivedHeader"
+          },
+          {
+            "id": 103817,
+            "Text": "onReceivedTitle"
+          },
+          {
+            "id": 103818,
+            "Text": "onReceiveHeader"
+          }
+        ]
+      },
+      {
+        "id": 25035,
+        "Text": "Để tải thông tin qua HTTP, chúng ta phải làm gì?",
+        "Marks": 1,
+        "AnswerId": 103821,
+        "answers": [
+          {
+            "id": 103819,
+            "Text": "Sử dụng HttpGet"
+          },
+          {
+            "id": 103820,
+            "Text": "Không thể tải thông tin qua HTTP"
+          },
+          {
+            "id": 103821,
+            "Text": "Sử dụng thư viện chuẩn của Java"
+          },
+          {
+            "id": 103822,
+            "Text": "Sử dụng URLRequesting"
+          }
+        ]
+      },
+      {
+        "id": 25036,
+        "Text": "URI nào được sử dụng để lấy bookmark của trình duyệt?",
+        "Marks": 1,
+        "AnswerId": 103824,
+        "answers": [
+          {
+            "id": 103823,
+            "Text": "content://firefox/bookmarks"
+          },
+          {
+            "id": 103824,
+            "Text": "content://browser/bookmarks"
+          },
+          {
+            "id": 103825,
+            "Text": "content://chrome/bookmarks"
+          },
+          {
+            "id": 103826,
+            "Text": "content://safari/bookmarks"
+          }
+        ]
+      },
+      {
+        "id": 25037,
+        "Text": "Để lưu trữ SQLite trên thẻ nhớ, phải cung cấp quyền gì trong Android Manifest?",
+        "Marks": 1,
+        "AnswerId": 103828,
+        "answers": [
+          {
+            "id": 103827,
+            "Text": "android.permission.ACCESS_CHECKIN_PROPERTIES"
+          },
+          {
+            "id": 103828,
+            "Text": "android.permission.WRITE_EXTERNAL_STORAGE"
+          },
+          {
+            "id": 103829,
+            "Text": "android.permission.ACCESS_CHECKIN_PROPERTIES"
+          },
+          {
+            "id": 103830,
+            "Text": "android.permission.WRITE_SETTINGS"
+          }
+        ]
+      },
     {
       "id": 25038,
       "Text": "Để sử dụng ContentProvider truy cập danh sách cuộc gọi gần đây, bạn phải bổ sung thêm quyền gì vào Android Manifest?",

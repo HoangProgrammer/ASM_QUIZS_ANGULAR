@@ -6,23 +6,23 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SubjectService {
-  private BASE_URL ="http://localhost:3000/subjects/"
+  private BASE_URL ="http://localhost:3000/subjects"
   constructor(private httpClient: HttpClient) { }
 
   get(text: string=''): Observable<any>{
-    return this.httpClient.get<any>(`${environment.API_Subject}?Name_like=`+text);
+    return this.httpClient.get<any>(`${this.BASE_URL}?Name_like=`+text);
   }
   getOne(id:number):Observable<any>{
-    return this.httpClient.get<any>(`${environment.API_Subject}/`+id);
+    return this.httpClient.get<any>(`${this.BASE_URL}/`+id);
   }
   create(data:any):Observable<any>{
-    return this.httpClient.post<any>(`${environment.API_Subject}`,data);
+    return this.httpClient.post<any>(`${this.BASE_URL}`,data);
   }
   update(id:any ,data:any):Observable<any>{
-    return this.httpClient.put<any>(`${environment.API_Subject}/`+id,data);
+    return this.httpClient.put<any>(`${this.BASE_URL}/`+id,data);
   }
   delete(id:any):Observable<any>{
-    return this.httpClient.delete<any>(`${environment.API_Subject}/`+id);
+    return this.httpClient.delete<any>(`${this.BASE_URL}/`+id);
   }
   search(string:any){
     return this.httpClient.get<any>(`http://localhost:3000/subjects?q=`+string);
